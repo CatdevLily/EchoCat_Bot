@@ -1,5 +1,6 @@
 const { oneLine, } = require('common-tags');
 const Commando = require('discord.js-commando');
+const live = require('./liveManager');
 
 require('dotenv').config();
 
@@ -18,6 +19,8 @@ client
         client.user.discriminator
       } (${client.user.id})`
     );
+
+    live.initLiveManager(client);
   })
   .on('disconnect', () => {
     console.warn('Disconnected!');
